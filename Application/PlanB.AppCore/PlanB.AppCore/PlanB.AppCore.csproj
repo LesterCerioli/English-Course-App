@@ -15,8 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\3-Application\PlanB.Application\PlanB.Application.csproj" />
-    <ProjectReference Include="..\..\5-Infra\5.2-CrossCutting\PlanB.CrossCutting.Identity\PlanB.CrossCutting.Identity.csproj" />
-    <ProjectReference Include="..\..\5-Infra\5.2-CrossCutting\PlanB.CrossCutting.IoC\PlanB.CrossCutting.IoC.csproj" />
   </ItemGroup>
 
 </Project>
