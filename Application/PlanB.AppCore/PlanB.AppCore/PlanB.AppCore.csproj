@@ -13,8 +13,6 @@
     <PackageReference Include="ReportGenerator" Version="4.8.8" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\3-Application\PlanB.Application\PlanB.Application.csproj" />
-  </ItemGroup>
+  
 
 </Project>
