@@ -11,124 +11,20 @@
 
 <link rel="stylesheet" href="~/css/home.css">
 
-<div class="jumbotron-fluid imagebackground">
-    <section class="h-100 w-100 justify-content-center">
-
-        <div class="d-flex justify-content-center " style="height:60%">
-            <div class="text-white mt-auto">
-
-                <h1 id="middleText" class="mb-3"></h1>
-
-
-            </div>
-        </div>
-        <div class="d-flex justify-content-center align-items-center " style="height:40%">
-            <div class="text-white mb-auto">
-                <a class="btn btn-outline-light btn-lg" href="#!" role="button">Matricule-se Já</a>
-            </div>
-        </div>
-
-
-    </section>
-</div>
-<hr>
-<section class="h-100">
-    <table class="h-100">
-        <h1 class="display-4 text-center " style="margin-bottom:10%">Nossa Equipe</h1>
-        <br>
-        <div class="row d-flex">
-            <div class="align-bottom col-md-4 order-sm-1 order-2" data-aos="fade-up" data-aos-duration="1500"
-                data-aos-offset="500">
-                <div class="card card-position" style="">
-                    <div class="card-back-position"></div>
-                    <img class="card-img-top" src="~/media/paty.jpg" alt="Card image cap" style="border-radius: 50%; 
-                                    z-index: 2;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Patrícia Pires</h5>
-                        <p class="card-text text-center ">Teacher</p>
+<div class="container-subscr">
+    <div class="row">
+        <section id="subscrForm">
+            @using (Html.BeginForm("Index", "Subscription", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Usuario, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Usuario, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Usuario, "", new { @class = "text-danger" })
                     </div>
-                    <a href="/About#ref1" class="btn btn-secondary position-absolute-bottom" style="border-radius: 5px 5px 5px 5px;
-                            width:100%;
-                            box-shadow: 2px 2px 5px #000;">Saiba Mais</a>
                 </div>
-            </div>
-
-            <div class="align-middle col-md-4 order-sm-2 order-1" data-aos="fade-up" data-aos-duration="1500">
-
-                <div class="card card-position" style="transform: translateY(-10px)">
-                    <div class="card-back-position"></div>
-                    <img class="card-img-top" src="~/media/lais.jpg" alt="Card image cap" style="border-radius: 50%; 
-                                    z-index: 2;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Laís Mota</h5>
-                        <p class="card-text text-center ">Founder/Teacher</p>
-
-                    </div>
-                    <a href="/About#ref2" class="btn btn-secondary position-absolute-bottom" style="border-radius: 5px 5px 5px 5px;
-                            width:100%;
-                            box-shadow: 2px 2px 5px #000;">Saiba Mais</a>
-                </div>
-            </div>
-
-            <div class="align-bottom col-md-4 order-3" data-aos="fade-up" data-aos-duration="1500"
-                data-aos-offset="500">
-
-                <div class="card card-position" style="">
-                    <div class="card-back-position"></div>
-                    <img class="card-img-top" src="~/media/20210218_142559.jpg" alt="Card image cap" style="border-radius: 50%; 
-                                    z-index: 2;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Natali Mota</h5>
-                        <p class="card-text text-center ">Teacher</p>
-                    </div>
-                    <a href="/About#ref3" class="btn btn-secondary position-absolute-bottom" style="border-radius: 5px 5px 5px 5px;
-                            width:100%;
-                            box-shadow: 2px 2px 5px #000;">Saiba Mais</a>
-                </div>
-            </div>
-    </table>
-</section>
-
-<script>
-    let texts = ['A LIBERDADE DE CONVERSAR COM O MUNDO INTEIRO']
-    consoleText(texts, 'middleText', ['white'])
-    function consoleText(words, id, colors) {
-        if (colors === undefined) colors = ['#fff'];
-        var visible = true;
-        var con = document.getElementById('console');
-        var letterCount = 1;
-        var x = 1;
-        var waiting = false;
-        var target = document.getElementById(id)
-        target.setAttribute('style', 'color:' + colors[0])
-        window.setInterval(function () {
-
-            if (letterCount === 0 && waiting === false) {
-                waiting = true;
-                target.innerHTML = words[0].substring(0, letterCount)
-                window.setTimeout(function () {
-                    var usedColor = colors.shift();
-                    colors.push(usedColor);
-                    var usedWord = words.shift();
-                    words.push(usedWord);
-                    x = 1;
-                    target.setAttribute('style', 'color:' + colors[0])
-                    letterCount += x;
-                    waiting = false;
-                }, 1000)
-            } else if (letterCount === words[0].length + 1 && waiting === false) {
-                waiting = true;
-                window.setTimeout(function () {
-                    x = -1;
-                    letterCount += x;
-                    waiting = false;
-                }, 1000)
-            } else if (waiting === false) {
-                target.innerHTML = words[0].substring(0, letterCount)
-                letterCount += x;
             }
-        }, 120)
 
-    }
-</script>
-
+        </section>
+    </div>
+</div>
