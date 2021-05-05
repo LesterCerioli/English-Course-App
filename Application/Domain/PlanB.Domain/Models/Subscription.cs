@@ -2,8 +2,12 @@ namespace PlanB.Domain.Models
 {
     public class Subscription : Entity
     {
-        public int Id { get; set; }
-        public string SubNumber { get; set; }
         
+        public string SubNumber { get; set; }
+
+        public override void Validate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

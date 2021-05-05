@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Subscription\" />
     <Folder Include="wwwroot\media\" />
   </ItemGroup>
 
