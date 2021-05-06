@@ -1,6 +1,8 @@
+using NetDevPack.Domain;
+
 namespace PlanB.Domain.Models
 {
-    public class Address
+    public class Address : Entity, IAggregateRoot
     {
         
     }

@@ -5,8 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NetDevPack" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\CrossCutting\PlanB.CrossCutting.Bus\PlanB.CrossCutting.Bus.csproj" />
     <ProjectReference Include="..\PlanB.Domain.Data\PlanB.Domain.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ValueObjects\" />
   </ItemGroup>
 
 </Project>
