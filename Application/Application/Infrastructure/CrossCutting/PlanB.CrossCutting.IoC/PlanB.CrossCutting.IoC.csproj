@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Applications\PlanB.Application\PlanB.Application.csproj" />
+    <ProjectReference Include="..\..\..\Domain\PlanB.Domain\PlanB.Domain.csproj" />
+    <ProjectReference Include="..\..\PlanB.Infra.Data\PlanB.Infra.Data.csproj" />
+    <ProjectReference Include="..\PlanB.CrossCutting.Identity\PlanB.CrossCutting.Identity.csproj" />
+  </ItemGroup>
+
+</Project>

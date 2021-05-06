@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Applications\PlanB.Application\PlanB.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\CrossCutting\PlanB.CrossCutting.Bus\PlanB.CrossCutting.Bus.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\CrossCutting\PlanB.CrossCutting.Identity\PlanB.CrossCutting.Identity.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\CrossCutting\PlanB.CrossCutting.IoC\PlanB.CrossCutting.IoC.csproj" />
+  </ItemGroup>
+
+</Project>
