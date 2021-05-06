@@ -5,9 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\PlanB.AppCore\PlanB.AppCore\PlanB.AppCore.csproj" />
-    <ProjectReference Include="..\..\..\Services\PlanB.Services.API\PlanB.Services.API.csproj" />
-    <ProjectReference Include="..\PlanB.CrossCutting.IoC\PlanB.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\..\..\Domain\PlanB.Domain\PlanB.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CrossCutting\PlanB.CrossCutting.IoC\PlanB.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\..\Domain\PlanB.Domain\PlanB.Domain.csproj" />
+    <ProjectReference Include="..\CrossCutting\PlanB.CrossCutting.Identity\PlanB.CrossCutting.Identity.csproj" />
   </ItemGroup>
 
 </Project>

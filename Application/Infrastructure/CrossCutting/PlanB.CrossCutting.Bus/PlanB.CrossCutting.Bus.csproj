@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Services\PlanB.Services.API\PlanB.Services.API.csproj" />
+    <ProjectReference Include="..\..\..\Domain\PlanB.Domain.Data\PlanB.Domain.Data.csproj" />
   </ItemGroup>
 
 </Project>

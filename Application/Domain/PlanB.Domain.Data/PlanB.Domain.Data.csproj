@@ -4,9 +4,4 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Infrastructure\CrossCutting\PlanB.CrossCutting.Bus\PlanB.CrossCutting.Bus.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\CrossCutting\PlanB.CrossCutting.Identity\PlanB.CrossCutting.Identity.csproj" />
-  </ItemGroup>
-
 </Project>
