@@ -5,7 +5,7 @@ namespace PlanB.Domain.Models
 {
     public abstract class Payment : Entity, IAggregateRoot
     {
-        public Payment(Guid id, DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, string payer, Document document, Address address, Email email)
+        public Payment(Guid id, DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, string payer, CPF cPF, Address address, Email email)
         {
 
             Id = id;
@@ -15,7 +15,7 @@ namespace PlanB.Domain.Models
             Total = total;
             TotalPaid = totalPaid;
             Payer = payer;
-            Document = document;
+            CPF = cPF;
             Address = address;
             Email = email;
 
@@ -29,8 +29,8 @@ namespace PlanB.Domain.Models
         public decimal Total { get; private set; }
         public decimal TotalPaid { get; private set; }
         public string Payer { get; private set; }
-        public Document Document { get; private set; }
-        public Address Address { get; private set; }
+        public virtual CPF CPF { get; private set; }
+        public virtual Address Address { get; private set; }
         public Email Email { get; private set; }
 
     }
