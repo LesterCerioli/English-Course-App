@@ -1,0 +1,202 @@
+﻿
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    h1 {
+        color: white;
+    }
+    p {
+        color: white;
+        line-height: .7;
+        font-size: .8em;
+    }
+    h5 {
+        color: white;
+    }
+    
+</style>
+
+<h1>Matricule-se já</h1>
+
+
+<div class="" style="min-height:80vh;">
+
+    
+    
+    <div class="collapse carousel-root p-5 text-light" id="informations" style="color:yellow !important;">
+
+    </div>
+
+    <div class="d-flex justify-content-center mb-3 mt-5">
+        <button id="buttonClick" class="btn btn-primary" type="button" data-toggle="collapse"
+                data-target="#formPayments" aria-expanded="false" aria-controls="collapseExample">
+            Faça a sua matrícula agora !!
+        </button>
+
+    </div>
+    <div class="collapse carousel-root p-5" id="formPayments">
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputStudentName">Nome completo</label>
+                    <input type="text" class="form-control" id="inputStudentName" placeholder="Nome completo"
+                           required>
+                    <label for="inputStudentName">Endereço completo</label>
+                    <input type="text" class="form-control" id="inputStudentName" placeholder="Endereço completo"
+                           required>
+                </div>
+                
+
+                <div class="form-group col-md-6">
+                    <label for="inputName">Data de Nascimento</label>
+                    <input type="date" class="form-control" id="inputName" placeholder="Ex: MM/AA" required>
+                    <style>
+                        label {
+                            color: white;
+                        }
+                    </style>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail">E-mail</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputCity">Cidade</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Cidade" required>
+                </div>
+
+            </div>
+            <div class="form-row">
+                
+                <div class="form-group col-md-6">
+                    <label for="inputCardNumber">Numero do Cartão</label>
+                    <input type="text" class="form-control" id="inputCardNumber" onchange="findFlag()"
+                           placeholder="Ex: AAAA-BBBB-CCCC-DDDD" required>
+                    <img id="bandeiraFlag" src="" width="25px" height="25px" alt="" hidden="true"> <label id="bandeira"></label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputSecCode">Código de Segurança</label>
+                    <input type="text" class="form-control" id="inputSecCode" placeholder="Ex: 123" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputCPF">CPF do titular</label>
+                    <input type="text" class="form-control" id="inputCPF" placeholder="Ex: 123.456.789-10" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group justify-content-center">
+                    <label for="inputStateBook">Nível do Curso</label>
+                    <select id="inputStateLevel" class="form-control" required>
+                        <option selected>Escolha...</option>
+                        <option>Nível Básico 1</option>
+                        <option>Nível Básico 2</option>
+                        <option>Nível Intermediário 1</option>
+                        <option>Nível Avançado 1</option>
+                        <option>Nível Avançado 2</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Confirmar Matrícula</button>
+        </form>
+    </div>
+
+</div>
+
+
+@section Scripts{
+
+
+    <script>
+    let clickStatus = true;
+    let clickedInfo = false;
+    $("#buttonClick").on("click", () => {
+        if (clickStatus) {
+            let but = $("#buttonClick").html("Cancelar")
+            but.removeClass("btn-primary").addClass("btn-danger")
+
+        } else {
+            let but = $("#buttonClick").html("Faça a sua matrícula agora")
+            but.removeClass("btn-danger").addClass("btn-primary")
+        }
+        clickStatus = !clickStatus;
+    })
+    $("#buttonClickInfo").on("click", () => {
+        if (clickStatus) {
+            let but = $("#buttonClickInfo").html("Fechar")
+            but.removeClass("btn-primary").addClass("btn-danger")
+
+        } else {
+            let but = $("#buttonClickInfo").html("Informações")
+            but.removeClass("btn-danger").addClass("btn-primary")
+        }
+        clickStatus = !clickStatus;
+    })
+
+    function closeInfo() {
+        $('#informations').collapse('hide');
+        let but = $("#buttonClickInfo").html("Informações");
+        but.removeClass("btn-danger").addClass("btn-primary");
+    }
+
+    function refreshinfo() {
+        $("#informations").html($(".active").find("#summary").html())
+    }
+
+    function findFlag() {
+        let flag = cardFlagVerificator($("#inputCardNumber").val());
+        if (flag) {
+            $("#bandeira").html(flag)
+            $("#bandeiraFlag").attr("hidden", false)
+            $("#bandeiraFlag").attr("src", "media/flags/" + flag + ".png");
+        }
+        else if ($("#inputCardNumber").val().length > 0) {
+            $("#bandeira").html("Inválido");
+            $("#bandeiraFlag").attr("hidden", true)
+        }
+        else {
+            $("#bandeira").html("");
+            $("#bandeiraFlag").attr("hidden", true)
+        }
+    }
+
+
+    const cardFlagVerificator = (cardnumber) => {
+        var cardnumber = cardnumber.replace(/[^0-9]+/g, '');
+
+        var cards = {
+            visa: /^4[0-9]{12}(?:[0-9]{3})/,
+            mastercard: /^5[1-5][0-9]{14}/,
+            diners: /^3(?:0[0-5]|[68][0-9])[0-9]{11}/,
+        @* amex: /^3[47][0-9]{13}/, *@
+            @* discover: /^6(?:011|5[0-9]{2})[0-9]{12}/, *@
+            hipercard: /^(606282\d{10}(\d{3})?)|(3841\d{15})/,
+                elo: /^((((636368)|(438935)|(504175)|(451416)|(636297))\d{0,10})|((5067)|(4576)|(4011))\d{0,12})/,
+                    jcb: /^(?:2131|1800|35\d{3})\d{11}/,
+                        @* aura: /^(5078\d{2})(\d{2})(\d{11})$/ *@
+    };
+
+    for (var flag in cards) {
+        if (cards[flag].test(cardnumber)) {
+            return flag;
+        }
+    }
+
+    return false;
+}
+
+@* Validação JQuery ??? *@
+
+    </script>
+
+
+}
