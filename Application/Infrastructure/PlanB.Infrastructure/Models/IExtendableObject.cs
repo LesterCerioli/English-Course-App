@@ -23,7 +23,6 @@ namespace PlanB.Infrastructure.Models
         /// </summary>
         string ExtensionData { get; set; }
 
-        T GetData<T>(string name, JsonSerializer jsonSerializer);
-        void SetData<T>(string name, T value, JsonSerializer jsonSerializer);
+        
     }
 }
