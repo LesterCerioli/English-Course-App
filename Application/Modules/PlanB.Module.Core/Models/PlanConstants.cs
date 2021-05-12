@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace PlanB.Module.Core.Models
 {
-    public enum AddressType
+    public class PlanConstants
     {
-        Shipping,
-
-        Billing
+        public const string ThemeConfigKey = "Theme";
     }
 }
