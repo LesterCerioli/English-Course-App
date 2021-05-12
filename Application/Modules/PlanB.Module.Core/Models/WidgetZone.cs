@@ -8,19 +8,17 @@ using System.Threading.Tasks;
 
 namespace PlanB.Module.Core.Models
 {
-    public class AppSetting : EntityBaseWithTypedId<string>
+    public class WidgetZone : EntityBase
     {
-        public AppSetting(string id)
+        public WidgetZone(long id)
         {
             Id = id;
         }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
-        public string Value { get; set; }
+        public string Name { get; set; }
 
-        [StringLength(450)]
-        public string Module { get; set; }
-
-        public bool IsVisibleInCommonSettingPage { get; set; }
+        public string Description { get; set; }
     }
 }
