@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using PlanB.Infrastructure.Models;
+using PlanB.Module.Core.Extensions.Settings;
 using PlanB.Module.Core.Models;
 using System;
 using System.Collections.Generic;
