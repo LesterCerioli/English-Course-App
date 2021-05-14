@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Extensions\WorkContext.cs~RFe98ce1.TMP" />
     <None Remove="Services\IStorageService.cs~RF2b400a6.TMP" />
   </ItemGroup>
 
