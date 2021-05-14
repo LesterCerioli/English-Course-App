@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlanB.Infrastructure.Data
+namespace PlanB.Module.Core.Data
 {
-    public interface ICustomModelBuilder
+    public  class PlanDbContext
     {
-        void Build(ICustomModelBuilder modelBuilder);
     }
 }
